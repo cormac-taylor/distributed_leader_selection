@@ -5,6 +5,9 @@ byte I;         /* will be used in init for assigning ids to nodes */
 mtype = { one, two, winner };           /* symb . Msg . Names */
 chan q[N] = [L] of { mtype , byte };    /* asynchronous channels */
 
+// ghost variables
+byte nr_leaders = 0;
+
 proctype nnode (chan inp, out; byte mynumber)
 {   bit Active = 1, know_winner = 0;
     byte nr, maximum = mynumber, neighbourR;
@@ -23,7 +26,9 @@ end:    do
                 out!two(nr);
                 neighbourR = nr
             :: else ->
+                nr_leaders++;
                 know_winner = 1;
+                assert mynumber == 6;
                 out!winner,nr;
             fi
         :: else ->
@@ -57,6 +62,7 @@ end:    do
         break
     od
 }
+
 init {
     byte proc;
     byte Ini[6];    /* N <= 6 randomize the process numbers */
@@ -86,5 +92,6 @@ init {
         :: proc > N ->
             break
         od
+        // assert nr_leaders == 1
     }
 }
