@@ -26,9 +26,7 @@ end:    do
                 out!two(nr);
                 neighbourR = nr
             :: else ->
-                nr_leaders++;
                 know_winner = 1;
-                assert mynumber == 6;
                 out!winner,nr;
             fi
         :: else ->
@@ -53,6 +51,8 @@ end:    do
         :: nr != mynumber ->
             printf("MSC: LOST\n");
         :: else -> 
+            nr_leaders++;
+            assert mynumber == N;
             printf("MSC: LEADER\n");
         fi;
         if
@@ -60,7 +60,8 @@ end:    do
         :: else -> out!winner,nr
         fi;
         break
-    od
+    od;
+    assert nr_leaders <= 1
 }
 
 init {
@@ -92,6 +93,5 @@ init {
         :: proc > N ->
             break
         od
-        // assert nr_leaders == 1
     }
 }
