@@ -1,3 +1,20 @@
+console follows:
+
+                  MSC: 2
+                          MSC: 1
+                      MSC: 5
+          MSC: 4
+              MSC: 3
+                  MSC: LOST
+                      MSC: LEADER
+                          MSC: LOST
+          MSC: LOST
+              MSC: LOST
+6 processes created
+
+
+
+./pan follows:
 
 (Spin Version 6.5.2 -- 6 December 2019)
 	+ Partial Order Reduction

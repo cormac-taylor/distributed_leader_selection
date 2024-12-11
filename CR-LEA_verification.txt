@@ -1,3 +1,15 @@
+console follows:
+
+              I am node 5 and I know the leader is 5
+                  I am node 3 and I know the leader is 5
+                      I am node 2 and I know the leader is 5
+                          I am node 1 and I know the leader is 5
+          I am node 4 and I know the leader is 5
+6 processes created
+
+
+
+./pan follows:
 
 (Spin Version 6.5.2 -- 6 December 2019)
 	+ Partial Order Reduction
